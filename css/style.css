@@ -1,0 +1,266 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(225, 255, 233, 0.712)), color-stop(rgba(253, 253, 253, 0.11)), to(rgba(224, 255, 233, 0.767)));
+  background-image: linear-gradient(to bottom, rgba(225, 255, 233, 0.712), rgba(253, 253, 253, 0.11), rgba(224, 255, 233, 0.767));
+  background-size: cover;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 0.3fr 0.1em 0.2fr 0.1em 3fr;
+  grid-template-rows: 0.3fr 0.2fr 3fr;
+      grid-template-areas: "header" "nav" "main";
+  grid-row-gap: 0.1em;
+}
+
+header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: header;
+}
+header div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+}
+header div img {
+  margin: 3px;
+  width: 130px;
+  height: 110px;
+  border-radius: 20px;
+}
+header div h1 {
+  font-size: 23px;
+  font-weight: bolder;
+  font-style: oblique;
+  position: relative;
+  right: 470px;
+  top: 10px;
+  color: rgb(255, 194, 115);
+}
+
+#animacionLogo {
+  -webkit-animation-name: animacion_logo;
+          animation-name: animacion_logo;
+  -webkit-animation-duration: 6s;
+          animation-duration: 6s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+@-webkit-keyframes animacion_logo {
+  from {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+@keyframes animacion_logo {
+  from {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+.navPrincipal {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: nav;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), color-stop(rgba(255, 255, 255, 0.219)), to(rgba(255, 255, 255, 0.658)));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.219), rgba(255, 255, 255, 0.658));
+}
+.navPrincipal ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  position: relative;
+  right: 10px;
+}
+.navPrincipal ul li {
+  list-style-type: none;
+  margin-right: 10px;
+}
+.navPrincipal ul li a {
+  text-decoration: none;
+  font-size: 21px;
+  font-weight: bold;
+  margin: 5px;
+  padding: 4px;
+  color: rgb(255, 193, 111);
+}
+.navPrincipal ul li a:hover {
+  color: rgb(255, 216, 165);
+}
+
+.cart {
+  background-image: url(/ProyectoJs/assets/imagenes/cart.png);
+  background-position: center center;
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+}
+.cart a {
+  position: relative;
+  top: 10px;
+  left: 15px;
+}
+
+main {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: main;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-flow: column wrap;
+      flex-flow: column wrap;
+  padding: 10px;
+}
+main section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-flow: column wrap;
+      flex-flow: column wrap;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.253);
+  width: 85%;
+  height: 65vh;
+  padding: 15px;
+  margin: 7px;
+  border-radius: 70px;
+}
+main section h2 {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 25px;
+  color: rgb(255, 200, 127);
+}
+main section div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  height: 75%;
+  width: 98%;
+  padding: 5px;
+  margin: 10px;
+}
+main section div a {
+  height: 80%;
+  width: 250px;
+  max-width: 250px;
+  padding: 5px;
+  border-radius: 20px;
+  text-decoration: none;
+}
+main section div a h3 {
+  position: relative;
+  top: 240px;
+  color: rgb(175, 119, 45);
+}
+main section div a p {
+  position: relative;
+  font-weight: bolder;
+  top: 10px;
+  color: rgb(43, 43, 43);
+}
+
+.hamburgesaUno {
+  background-image: url(../assets/Imagenes/burgerUno.jpg);
+  background-position: center center;
+  background-size: cover;
+}
+
+.hamburgesaDos {
+  background-image: url(../assets/Imagenes/burgerDos.jpg);
+  background-position: center center;
+  background-size: cover;
+}
+
+.hamburgesaTres {
+  background-image: url(../assets/Imagenes/burgerTres.jpg);
+  background-position: center center;
+  background-size: cover;
+}

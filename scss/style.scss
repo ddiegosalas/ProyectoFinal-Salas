@@ -1,0 +1,7 @@
+@import "./mixins";
+
+*{
+    @include reset;
+}
+
+@import "./index";

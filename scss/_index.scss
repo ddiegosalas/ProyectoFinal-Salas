@@ -1,0 +1,158 @@
+body{
+    width: 100vw;
+    height: fit-content;
+    background-image: linear-gradient(to bottom, rgba(225, 255, 233, 0.712),rgba(253, 253, 253, 0.11),rgba(224, 255, 233, 0.767));
+    background-size: cover;
+    display: grid;
+    grid-template-rows: .3fr .2fr 3fr;
+    grid-template-areas: "header"
+                         "nav"
+                         "main";
+    grid-row-gap: .1em;
+}
+
+header{
+    grid-area: header;
+    div{
+        @include flexbox(row, space-around, center, row wrap);
+        img{
+            margin: 3px;
+            width: 130px;
+            height: 110px;
+            border-radius: 20px;
+        }
+        h1{
+            font-size: 23px;
+            font-weight: bolder;
+            font-style: oblique;
+            position: relative;
+            right: 470px;
+            top: 10px;
+            color:  rgb(255, 194, 115);
+        }
+    }
+}
+
+
+#animacionLogo{
+    animation-name: animacion_logo;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    @keyframes animacion_logo{
+        to {  
+        }
+    
+        from {
+            transform: rotateY(360deg);
+        }
+    }
+}
+
+.navPrincipal{
+    grid-area: nav;
+    @include flexbox(row, flex-end, center, row wrap);
+    background-image: linear-gradient( to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.219), rgba(255, 255, 255, 0.658));
+    ul{
+        @include flexbox(row, space-evenly, center, row wrap);
+        position: relative;
+        right: 10px;
+        li{ 
+            list-style-type: none;
+            margin-right: 10px;
+            a{
+                text-decoration: none;
+                font-size: 21px;
+                font-weight: bold;
+                margin: 5px;
+                padding: 4px;
+                color:  rgb(255, 193, 111);
+                &:hover{
+                    color:rgb(255, 216, 165);
+                }
+            }
+        }
+    }
+}
+
+.cart{
+    background-image: url(/ProyectoJs/assets/imagenes/cart.png);
+    background-position: center center;
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+    a{
+        position: relative;
+        top: 10px;
+        left: 15px;
+    }
+}
+
+main{
+    grid-area: main;
+    @include flexbox(column, space-evenly, center, column wrap);
+    padding: 10px;
+    section{
+        @include flexbox(column, space-around, center, column wrap);
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.253);
+        width: 85%;
+        height: 65vh;
+        padding: 15px;
+        margin: 7px;
+        border-radius: 70px;
+        h2{
+            height: fit-content;
+            width: fit-content;
+            padding: 5px;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 25px;
+            color: rgb(255, 200, 127);
+        }
+        div{
+            @include flexbox(row, space-evenly, center, row wrap);
+            height: 75%;
+            width: 98%;
+            padding: 5px;
+            margin: 10px;
+            a{
+                height: 80%;
+                width: 250px;
+                max-width: 250px;
+                padding: 5px;
+                border-radius: 20px;
+                text-decoration: none;
+                h3{
+                    position: relative;
+                    top: 240px;
+                    color: rgb(175, 119, 45);
+                }
+                p{
+                    position: relative;
+                    font-weight: bolder;
+                    top: 10px;
+                    color: rgb(43, 43, 43);
+                }
+            }
+        }
+        
+    }
+}
+
+.hamburgesaUno{
+    background-image: url(../assets/Imagenes/burgerUno.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+
+.hamburgesaDos{
+    background-image: url(../assets/Imagenes/burgerDos.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+
+.hamburgesaTres{
+    background-image: url(../assets/Imagenes/burgerTres.jpg);
+    background-position: center center;
+    background-size: cover;
+}
