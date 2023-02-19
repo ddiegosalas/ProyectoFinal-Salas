@@ -1,36 +1,13 @@
 body{
     width: 100vw;
     height: fit-content;
-    background-image: linear-gradient(to bottom, rgba(225, 255, 233, 0.712),rgba(253, 253, 253, 0.11),rgba(224, 255, 233, 0.767));
+    background-color: rgba(250, 235, 215, 0.445);
     background-size: cover;
     display: grid;
-    grid-template-rows: .3fr .2fr 3fr;
-    grid-template-areas: "header"
-                         "nav"
+    grid-template-rows: 15% 85%;
+    grid-template-areas: "nav"
                          "main";
     grid-row-gap: .1em;
-}
-
-header{
-    grid-area: header;
-    div{
-        @include flexbox(row, space-around, center, row wrap);
-        img{
-            margin: 3px;
-            width: 130px;
-            height: 110px;
-            border-radius: 20px;
-        }
-        h1{
-            font-size: 23px;
-            font-weight: bolder;
-            font-style: oblique;
-            position: relative;
-            right: 470px;
-            top: 10px;
-            color:  rgb(255, 194, 115);
-        }
-    }
 }
 
 
@@ -50,24 +27,40 @@ header{
 
 .navPrincipal{
     grid-area: nav;
-    @include flexbox(row, flex-end, center, row wrap);
-    background-image: linear-gradient( to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.219), rgba(255, 255, 255, 0.658));
-    ul{
-        @include flexbox(row, space-evenly, center, row wrap);
-        position: relative;
-        right: 10px;
-        li{ 
-            list-style-type: none;
-            margin-right: 10px;
-            a{
-                text-decoration: none;
-                font-size: 21px;
-                font-weight: bold;
-                margin: 5px;
-                padding: 4px;
-                color:  rgb(255, 193, 111);
-                &:hover{
-                    color:rgb(255, 216, 165);
+    @include flexbox(row, space-around, center, row wrap);
+    background-color: rgba(150, 89, 49, 0.877);
+    div{
+        @include flexbox(row, space-around, center, row wrap);
+        img{
+            margin: 3px;
+            width: 130px;
+            height: 100px;
+            position: relative;
+            bottom: 10px;
+        }
+        h1{
+            font-size: 25px;
+            font-weight: bolder;
+            font-style: oblique;
+            color: burlywood;
+        }
+        ul{
+            @include flexbox(row, space-evenly, center, row wrap);
+            position: relative;
+            right: 10px;
+            li{ 
+                list-style-type: none;
+                margin-right: 10px;
+                a{
+                    text-decoration: none;
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin: 5px;
+                    padding: 4px;
+                    color:  rgb(255, 193, 111);
+                    &:hover{
+                        color:rgb(255, 216, 165);
+                    }
                 }
             }
         }
@@ -107,7 +100,7 @@ main{
             font-style: italic;
             font-weight: 700;
             font-size: 25px;
-            color: rgb(255, 200, 127);
+            color: rgb(165, 113, 46);
         }
         div{
             @include flexbox(row, space-evenly, center, row wrap);
@@ -125,13 +118,13 @@ main{
                 h3{
                     position: relative;
                     top: 240px;
-                    color: rgb(175, 119, 45);
+                    color: rgb(148, 90, 15);
                 }
                 p{
                     position: relative;
                     font-weight: bolder;
                     top: 10px;
-                    color: rgb(43, 43, 43);
+                    color: rgb(39, 24, 4);
                 }
             }
         }

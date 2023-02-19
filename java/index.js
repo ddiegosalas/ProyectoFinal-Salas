@@ -18,9 +18,16 @@ const hamburguesas = [
         precio: 900,
         stock: {
         listas: 1,
-    }
-    }
-] 
+        }
+    },
+    {
+        nombre: "carne",
+        precio: 950,
+        stock: {
+        listas: 3,
+        }
+    },
+]
 
 function sumadorTotal (dato){
     let total = 0;
@@ -49,14 +56,14 @@ const menu = [remolacha, porto, notChicken];
 
 let precioTotal = 0;
 let hamburguesa = false;
-let texto = toLowerCase(prompt("Ingrese el nombre de la hamburguesa: remolacha, porto o not chicken (si desea salir escriba: salir)"));
+let texto = prompt("Ingrese el nombre de la hamburguesa: remolacha, porto o not chicken (si desea salir escriba: salir)").toLowerCase();
 
 if ((texto == "remolacha") || (texto == "porto") || (texto == "not chicken") || (texto == "salir")){
     hamburguesa = true;
 }else{
     alert ("No existe tal hamburguesa");
     while(hamburguesa == false){
-        texto = toLowerCase(prompt("Ingrese el nombre de la hamburguesa: remolacha, porto o not chicken (si desea salir escriba: salir)"));
+        texto = prompt("Ingrese el nombre de la hamburguesa: remolacha, porto o not chicken (si desea salir escriba: salir)").toLowerCase();
 
         if ((texto == "remolacha") || (texto == "porto") || (texto == "not chicken") || (texto == "salir")){
             hamburguesa = true;
@@ -72,13 +79,13 @@ while((texto != "salir") || (texto != "finalizado")){
 
         precioTotal += sumadorTotal(texto);
 
-        texto = toLowerCase(prompt("Ingrese el nombre de la hamburguesa: remolacha, porto o not chicken (si desea salir o finalizar escriba: salir o finalizar)"));
+        texto = prompt("Ingrese el nombre de la hamburguesa: remolacha, porto o not chicken (si desea salir o finalizar escriba: salir o finalizar)").toLowerCase();
 
         if ((texto != "remolacha") || (texto != "porto") || (texto != "not chicken") || (texto != "salir") || (texto != "finalizar")){
             alert ("No existe tal hamburguesa");
             let key = true;
             while(key === true){
-                texto = toLowerCase(prompt ("Ingrese el nombre de la hamburguesa: remolacha, porto o not chicken (si desea salir o finalizar escriba: salir o finalizar)"));
+                texto = prompt ("Ingrese el nombre de la hamburguesa: remolacha, porto o not chicken (si desea salir o finalizar escriba: salir o finalizar)").toLowerCase();
                 
                 if ((texto != "remolacha") || (texto != "porto") || (texto != "not chicken") || (texto != "salir") || (texto != "finalizar")){
                     alert ("No existe tal hamburguesa");

@@ -10,52 +10,14 @@ body {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(225, 255, 233, 0.712)), color-stop(rgba(253, 253, 253, 0.11)), to(rgba(224, 255, 233, 0.767)));
-  background-image: linear-gradient(to bottom, rgba(225, 255, 233, 0.712), rgba(253, 253, 253, 0.11), rgba(224, 255, 233, 0.767));
+  background-color: rgba(250, 235, 215, 0.445);
   background-size: cover;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 0.3fr 0.1em 0.2fr 0.1em 3fr;
-  grid-template-rows: 0.3fr 0.2fr 3fr;
-      grid-template-areas: "header" "nav" "main";
+  -ms-grid-rows: 15% 0.1em 85%;
+  grid-template-rows: 15% 85%;
+      grid-template-areas: "nav" "main";
   grid-row-gap: 0.1em;
-}
-
-header {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: header;
-}
-header div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-flow: row wrap;
-      flex-flow: row wrap;
-}
-header div img {
-  margin: 3px;
-  width: 130px;
-  height: 110px;
-  border-radius: 20px;
-}
-header div h1 {
-  font-size: 23px;
-  font-weight: bolder;
-  font-style: oblique;
-  position: relative;
-  right: 470px;
-  top: 10px;
-  color: rgb(255, 194, 115);
 }
 
 #animacionLogo {
@@ -80,7 +42,7 @@ header div h1 {
 }
 
 .navPrincipal {
-  -ms-grid-row: 3;
+  -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: nav;
   display: -webkit-box;
@@ -90,18 +52,45 @@ header div h1 {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-flow: row wrap;
       flex-flow: row wrap;
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), color-stop(rgba(255, 255, 255, 0.219)), to(rgba(255, 255, 255, 0.658)));
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.219), rgba(255, 255, 255, 0.658));
+  background-color: rgba(150, 89, 49, 0.877);
 }
-.navPrincipal ul {
+.navPrincipal div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+}
+.navPrincipal div img {
+  margin: 3px;
+  width: 130px;
+  height: 100px;
+  position: relative;
+  bottom: 10px;
+}
+.navPrincipal div h1 {
+  font-size: 25px;
+  font-weight: bolder;
+  font-style: oblique;
+  color: burlywood;
+}
+.navPrincipal div ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -120,19 +109,19 @@ header div h1 {
   position: relative;
   right: 10px;
 }
-.navPrincipal ul li {
+.navPrincipal div ul li {
   list-style-type: none;
   margin-right: 10px;
 }
-.navPrincipal ul li a {
+.navPrincipal div ul li a {
   text-decoration: none;
-  font-size: 21px;
+  font-size: 20px;
   font-weight: bold;
   margin: 5px;
   padding: 4px;
   color: rgb(255, 193, 111);
 }
-.navPrincipal ul li a:hover {
+.navPrincipal div ul li a:hover {
   color: rgb(255, 216, 165);
 }
 
@@ -150,7 +139,7 @@ header div h1 {
 }
 
 main {
-  -ms-grid-row: 5;
+  -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: main;
   display: -webkit-box;
@@ -204,7 +193,7 @@ main section h2 {
   font-style: italic;
   font-weight: 700;
   font-size: 25px;
-  color: rgb(255, 200, 127);
+  color: rgb(165, 113, 46);
 }
 main section div {
   display: -webkit-box;
@@ -238,13 +227,13 @@ main section div a {
 main section div a h3 {
   position: relative;
   top: 240px;
-  color: rgb(175, 119, 45);
+  color: rgb(148, 90, 15);
 }
 main section div a p {
   position: relative;
   font-weight: bolder;
   top: 10px;
-  color: rgb(43, 43, 43);
+  color: rgb(39, 24, 4);
 }
 
 .hamburgesaUno {
