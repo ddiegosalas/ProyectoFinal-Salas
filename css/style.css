@@ -182,18 +182,23 @@ main section {
   margin: 7px;
   border-radius: 70px;
 }
-main section h2 {
+main section button {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  padding: 5px;
+  padding: 10px;
   font-style: italic;
   font-weight: 700;
-  font-size: 25px;
+  font-size: 20px;
   color: rgb(165, 113, 46);
+  border-radius: 10px;
+  background-color: rgba(218, 218, 218, 0.253);
+}
+main section button:hover {
+  background-color: rgba(155, 155, 155, 0.281);
 }
 main section div {
   display: -webkit-box;

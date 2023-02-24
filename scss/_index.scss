@@ -93,14 +93,19 @@ main{
         padding: 15px;
         margin: 7px;
         border-radius: 70px;
-        h2{
+        button{
             height: fit-content;
             width: fit-content;
-            padding: 5px;
+            padding: 10px;
             font-style: italic;
             font-weight: 700;
-            font-size: 25px;
+            font-size: 20px;
             color: rgb(165, 113, 46);
+            border-radius: 10px;
+            background-color: rgba(218, 218, 218, 0.253);
+            &:hover{
+                background-color: rgba(155, 155, 155, 0.281);
+            }
         }
         div{
             @include flexbox(row, space-evenly, center, row wrap);

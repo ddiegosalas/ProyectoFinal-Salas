@@ -17,42 +17,30 @@ const hamburguesas = [
         nombre: "not chicken",
         precio: 900,
         stock: {
-        listas: 1,
+            listas: 1,
         }
     },
     {
         nombre: "carne",
         precio: 950,
         stock: {
-        listas: 3,
+            listas: 3,
         }
     },
 ]
 
-function sumadorTotal (dato){
-    let total = 0;
-
-    if(dato == remolacha.nombre){
-        total += remolacha.precio;
-        remolacha.stock.listas -= 1;
-    }
-    else if (dato == porto.nombre){
-        total += porto.precio;
-        porto.stock.listas -= 1;
-    }
-    else if(dato == notChicken.nombre){
-        total += notChicken.precio;
-        notChicken.stock.listas -= 1;
-    }
-
-    return total;
+function sumador(dato){
+    const indice = hamburguesas.findIndex(hamburguesas => hamburguesas.nombre == dato);
+    hamburguesas[indice].stock.listas -= 1;
+    return hamburguesas[indice].precio;
 }
 
-function stock (cantidad){
-    
+function stock (stock){
+
 }
 
-const menu = [remolacha, porto, notChicken];
+const boton = document.getElementById("botonPedido");
+boton.onclick = () => {
 
 let precioTotal = 0;
 let hamburguesa = false;
@@ -73,39 +61,43 @@ if ((texto == "remolacha") || (texto == "porto") || (texto == "not chicken") || 
     }
 }
 
-while((texto != "salir") || (texto != "finalizado")){
-
+while((texto != "salir")){
+    let key = true;
     while(hamburguesa == true){
 
-        precioTotal += sumadorTotal(texto);
+        precioTotal += sumador(texto);
 
+        alert ("Que más?");
         texto = prompt("Ingrese el nombre de la hamburguesa: remolacha, porto o not chicken (si desea salir o finalizar escriba: salir o finalizar)").toLowerCase();
 
-        if ((texto != "remolacha") || (texto != "porto") || (texto != "not chicken") || (texto != "salir") || (texto != "finalizar")){
+        if ((texto == "remolacha") || (texto == "porto") || (texto == "not chicken")){
+            continue;
+        }else if((texto == "salir") || (texto == "finalizar")){
+            hamburguesa = false;
+        }else{
             alert ("No existe tal hamburguesa");
-            let key = true;
+            key = true;
             while(key === true){
                 texto = prompt ("Ingrese el nombre de la hamburguesa: remolacha, porto o not chicken (si desea salir o finalizar escriba: salir o finalizar)").toLowerCase();
                 
-                if ((texto != "remolacha") || (texto != "porto") || (texto != "not chicken") || (texto != "salir") || (texto != "finalizar")){
+                if ((texto == "remolacha") || (texto == "porto") || (texto == "not chicken")){
+                    key = false;
+                }else if((texto == "salir") || (texto == "finalizar")){
+                    key = false;
+                    hamburguesa = false;
+                }else{
                     alert ("No existe tal hamburguesa");
-                }else if ((texto == "remolacha") || (texto == "porto") || (texto == "not chicken")){
-                    key = false;
-                }else if(texto == "salir"){
-                    key = false;
-                    hamburguesa = false;
-                }else if(texto == "finalizar"){
-                    key = false;
-                    hamburguesa = false;
                 }
             }
         }
     }
+    break;
 }
 
 if (texto == "salir"){
     precioTotal = 0;
     alert ("Vuelva prontos!");
-}else if (texto == "finalizado"){
+}else if (texto == "finalizar"){
     alert ("El total es: $ " + precioTotal);
+}
 }
