@@ -29,11 +29,17 @@ const hamburguesas = [
     },
 ]
 
-function sumador(dato){
+function buscarHamburguesa(dato){
     const indice = hamburguesas.findIndex(hamburguesas => hamburguesas.nombre == dato);
-    hamburguesas[indice].stock.listas -= 1;
-    return hamburguesas[indice].precio;
+    return hamburguesas[indice];
 }
+
+function sumador(dato){
+    const hamburguesa = buscarHamburguesa(dato);
+    hamburguesa.stock.listas -= 1;
+    return hamburguesa.precio;
+}
+
 
 function stock (stock){
 
@@ -58,6 +64,7 @@ botonPedido.classList.add("animate__animated");
 botonPedido.classList.add("animate__jackInTheBox");
 botonPedido.onclick = () => {
 
+const carrito = [];
 let precioTotal = 0;
 let hamburguesa = false;
 let texto = prompt("Ingrese el nombre de la hamburguesa: remolacha, porto o not chicken (si desea salir escriba: salir)").toLowerCase();
@@ -80,7 +87,8 @@ if ((texto == "remolacha") || (texto == "porto") || (texto == "not chicken") || 
 while((texto != "salir")){
     let key = true;
     while(hamburguesa == true){
-
+        carrito.push(buscarHamburguesa(texto));
+        console.log(carrito);
         precioTotal += sumador(texto);
 
         alert ("Que más?");
@@ -114,6 +122,14 @@ if (texto == "salir"){
     precioTotal = 0;
     alert ("Vuelva prontos!");
 }else if (texto == "finalizar"){
+    carrito.forEach((el) => {
+        console.log(el);
+        alert(
+            "Nombre: " + el.nombre +
+            " Precio: " + el.precio
+            );
+    });
+    
     alert ("El total es: $ " + precioTotal);
-}
+};
 }
