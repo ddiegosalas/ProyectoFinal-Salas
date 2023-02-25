@@ -258,3 +258,8 @@ main section div a p {
   background-position: center center;
   background-size: cover;
 }
+
+.animacionMenu:hover{
+  transform: scale(1.1);
+  transition: transform 1s;
+}

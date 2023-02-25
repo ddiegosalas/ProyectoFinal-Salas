@@ -39,8 +39,24 @@ function stock (stock){
 
 }
 
-const boton = document.getElementById("botonPedido");
-boton.onclick = () => {
+const animacionMenu = document.querySelectorAll("a");
+console.log(animacionMenu);
+animacionMenu.forEach((e)=>{
+    e.addEventListener("mouseover", () =>{
+        console.log("move");
+        e.classList.add("animacionMenu");
+    });
+    e.addEventListener("onmouseout", () =>{
+        console.log("move out");
+        e.classList.remove("animacionMenu");
+    });
+});
+
+//BOTON DE HACER PEDIDO//
+const botonPedido = document.querySelector(".botonPedido");
+botonPedido.classList.add("animate__animated");
+botonPedido.classList.add("animate__jackInTheBox");
+botonPedido.onclick = () => {
 
 let precioTotal = 0;
 let hamburguesa = false;
