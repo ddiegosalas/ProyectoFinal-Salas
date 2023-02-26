@@ -45,8 +45,7 @@ function stock (stock){
 
 }
 
-const animacionMenu = document.querySelectorAll("a");
-console.log(animacionMenu);
+const animacionMenu = document.querySelectorAll(".burgers");
 animacionMenu.forEach((e)=>{
     e.addEventListener("mouseover", () =>{
         console.log("move");
@@ -58,14 +57,15 @@ animacionMenu.forEach((e)=>{
     });
 });
 
+const carrito = [];
+let precioTotal = 0;
+
 //BOTON DE HACER PEDIDO//
 const botonPedido = document.querySelector(".botonPedido");
 botonPedido.classList.add("animate__animated");
 botonPedido.classList.add("animate__jackInTheBox");
 botonPedido.onclick = () => {
 
-const carrito = [];
-let precioTotal = 0;
 let hamburguesa = false;
 let texto = prompt("Ingrese el nombre de la hamburguesa: remolacha, porto o not chicken (si desea salir escriba: salir)").toLowerCase();
 
@@ -88,7 +88,6 @@ while((texto != "salir")){
     let key = true;
     while(hamburguesa == true){
         carrito.push(buscarHamburguesa(texto));
-        console.log(carrito);
         precioTotal += sumador(texto);
 
         alert ("Que más?");
@@ -118,18 +117,29 @@ while((texto != "salir")){
     break;
 }
 
+const guardarLocal = (clave, valor) => {
+    localStorage.setItem(clave, valor);
+};
+
+guardarLocal("listaCarrito", JSON.stringify(carrito));
+
 if (texto == "salir"){
     precioTotal = 0;
     alert ("Vuelva prontos!");
-}else if (texto == "finalizar"){
-    carrito.forEach((el) => {
-        console.log(el);
-        alert(
-            "Nombre: " + el.nombre +
-            " Precio: " + el.precio
-            );
-    });
-    
-    alert ("El total es: $ " + precioTotal);
 };
-}
+
+};
+
+//CARRITO
+const botonCarrito = document.querySelector(".cart");
+botonCarrito.onclick = () => {
+    const mostrarCarrito = () => {
+        let mensaje = `Carrito: `;
+        carrito.forEach((el)=>{
+            mensaje += `
+                        ${el.nombre} $${el.precio}
+                    `;
+        });
+        mensaje += `El total es: $ " ${precioTotal}`;
+    };
+};
