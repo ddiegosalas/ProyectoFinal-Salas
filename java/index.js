@@ -131,6 +131,12 @@ if (texto == "salir"){
 };
 
 //CARRITO
+const almacenados = JSON.parse(localStorage.getItem("listaCarrito"));
+for(const obj of almacenados){
+    carrito.push(obj);
+}
+localStorage.clear;
+
 const botonCarrito = document.querySelector(".cart");
 botonCarrito.onclick = () => {
     const mostrarCarrito = () => {
