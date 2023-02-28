@@ -137,6 +137,18 @@ body {
   top: 10px;
   left: 15px;
 }
+.cart div {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 2px;
+  bottom: 18px;
+  left: 42px;
+  font-weight: 700;
+  background-color: rgba(245, 245, 220, 0.185);
+  border-radius: 7px;
+}
 
 main {
   -ms-grid-row: 3;
