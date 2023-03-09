@@ -18,8 +18,8 @@
         </div>
         <div>
             <ul>
-                <li><a href="">Menu</a></li>
-                <li><a href="">Contacto</a></li>
+                <li><a href="./index.html">Menu</a></li>
+                <li><a href="./contacto.html" class="ganaJugando">Ganá jugando</a></li>
                 <li class="cart">
                     <a href="#" id="botonCarrito"></a>
                     <div id="numeroCarrito">0</div>
@@ -30,38 +30,66 @@
     
     <main>
         <section>
-            <button type="button" class="botonPedido animate__animated animate__jackInTheBox">Hace tu pedido</button>
             <div>
-                <a href="#" class="hamburgesaUno burgers">
-                    <h3>Remolacha
-                        <p>
-                            $700
-                        </p>
-                    </h3>
-                    <h4 class="cartelEmergente"></h4>
-                </a>
-                <a href="#" class="hamburgesaDos burgers">
-                    <h3>Porto
-                        <p>
-                            $800
-                        </p>
-                    </h3>
-                    <h4 class="cartelEmergente"></h4>
-                </a>
-                <a href="#" class="hamburgesaTres burgers">
-                    <h3>Not Chicken
-                        <p>
-                            $900
-                        </p>
-                    </h3>
-                    <h4 class="cartelEmergente"></h4>
-                </a>  
+                <div class="tarjeta">
+                    <div class="adelante">
+                        <img src="./assets/imagenes/burgerUno.jpg" alt="" class="hamburgesaUno burgers">
+                        <h3>Remolacha
+                            <p>
+                                $700
+                            </p>
+                        </h3>
+                    </div>
+                    <div class="atras">
+                        <p>DESCRIPCION</p>
+                    </div>
+                    <button type="button" class="botonAgregar">
+                        Agregar
+                    </button>
+                </div>
+                <div class="tarjeta">
+                    <div class="adelante">
+                        <img src="./assets/imagenes/burgerDos.jpg" alt="" class="hamburgesaDos burgers">
+                        <h3>Porto
+                            <p>
+                                $800
+                            </p>
+                        </h3>
+                    </div>
+                    <div class="atras">
+                        <p>DESCRIPCION</p>
+                    </div>
+                    <button type="button" class="botonAgregar">
+                        Agregar
+                    </button>
+                </div>
+                <div class="tarjeta">
+                    <div class="adelante">
+                        <img src="./assets/imagenes/burgerTres.jpg" alt="" class="hamburgesaTres burgers">
+                        <h3>Not Chicken
+                            <p>
+                                $900
+                            </p>
+                        </h3>
+                    </div>
+                    <div class="atras">
+                        <p>DESCRIPCION</p>
+                    </div>
+                    <button type="button" class="botonAgregar">
+                        Agregar
+                    </button>
+                </div>
+            </div>
+            <div class="carritoVisual">
+                
             </div>
         </section>
 
     </main>
 
-    <script src="java/index.js" type="module"></script>
+    <script src="./java/index.js" type="module"></script>
+    <!-- LIBRERIAS -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </body>
 

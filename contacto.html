@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="shortcut icon" href="./assets/Imagenes/logoPágina.png">
+    <title>Hamburguesas Java</title>
+</head>
+<body>
+
+    <nav class="navPrincipal">
+        <div>
+            <img src="./assets/imagenes/logo.png" alt="LOGO" id="animacionLogo">
+            <h1>HAMBURGESAS JAVA</h1>
+        </div>
+        <div>
+            <ul>
+                <li><a href="./index.html">Menu</a></li>
+                <li><a href="./contacto.html">Ganá jugando</a></li>
+                <li class="cart">
+                    <a href="#" id="botonCarrito"></a>
+                    <div id="numeroCarrito">0</div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <section>
+            <!--<h3>Nuestra Ubicación</h3>
+            <div id="map"></div>-->
+            <h2 class ="tituloJuego">
+                Ganá jugando con Rick & Morty
+                <p>Adiviná quien se comío la Porto y llevate una Gratis!</p>
+            </h2>
+            
+            <div id="lista">
+                
+            </div>
+        </section>
+    </main>
+
+    <script src="./java/contacto.js" type="module"></script>
+    <!-- LIBRERIAS -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhdt4LkQ5-FGKOL06535g48X-4Q_CzeKc&callback=iniciarMapa"></script>--> 
+
+</body>
+
+</html>

@@ -5,17 +5,18 @@
           box-sizing: border-box;
 }
 
+ul {
+  list-style: none;
+}
+
 body {
   width: 100vw;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: auto;
   background-color: rgba(250, 235, 215, 0.445);
-  background-size: cover;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 15% 0.1em 85%;
-  grid-template-rows: 15% 85%;
+  -ms-grid-rows: 80px 0.1em 90%;
+  grid-template-rows: 80px 90%;
       grid-template-areas: "nav" "main";
   grid-row-gap: 0.1em;
 }
@@ -157,60 +158,38 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-flow: column wrap;
-      flex-flow: column wrap;
-  padding: 10px;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
 }
 main section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-flow: column wrap;
-      flex-flow: column wrap;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.253);
-  width: 85%;
-  height: 65vh;
-  padding: 15px;
-  margin: 7px;
-  border-radius: 70px;
-}
-main section button {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 10px;
-  font-style: italic;
-  font-weight: 700;
-  font-size: 20px;
-  color: rgb(165, 113, 46);
-  border-radius: 10px;
-  background-color: rgba(218, 218, 218, 0.253);
-}
-main section button:hover {
-  background-color: rgba(155, 155, 155, 0.281);
+  width: 100vw;
+  height: auto;
+  padding: 5px;
 }
 main section div {
   display: -webkit-box;
@@ -228,50 +207,284 @@ main section div {
           align-items: center;
   -ms-flex-flow: row wrap;
       flex-flow: row wrap;
-  height: 75%;
+  padding: 2px;
+  height: 55vh;
   width: 98%;
-  padding: 5px;
-  margin: 10px;
 }
-main section div a {
-  height: 80%;
-  width: 250px;
-  max-width: 250px;
+main section div div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-flow: column wrap;
+      flex-flow: column wrap;
+  position: relative;
+  width: 23%;
+  height: 90%;
+  padding: 5px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+main section div div div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+}
+main section div div .adelante {
+  -webkit-transform: perspective(500px) rotateY(0deg);
+          transform: perspective(500px) rotateY(0deg);
+}
+main section div div .adelante:hover {
+  -webkit-transform: perspective(500px) rotateY(180deg);
+          transform: perspective(500px) rotateY(180deg);
+}
+main section div div .adelante img {
+  height: 65%;
+  width: 100%;
+  max-width: 240px;
   padding: 5px;
   border-radius: 20px;
-  text-decoration: none;
 }
-main section div a h3 {
-  position: relative;
-  top: 240px;
+main section div div .adelante h3 {
+  height: auto;
+  width: auto;
+  padding: 5px;
   color: rgb(148, 90, 15);
-}
-main section div a p {
   position: relative;
+  bottom: 22px;
+}
+main section div div .adelante h3 p {
+  height: auto;
+  width: auto;
+  padding: 5px;
+  color: black;
+}
+main section div div .atras {
+  background-color: blueviolet;
+  -webkit-transform: perspective(500px) rotateY(180deg);
+          transform: perspective(500px) rotateY(180deg);
+}
+main section div div .atras:hover {
+  -webkit-transform: perspective(500px) rotateY(360deg);
+          transform: perspective(500px) rotateY(360deg);
+}
+main section div div .atras p {
+  color: black;
+  font-weight: bold;
+}
+main section div div button {
+  position: relative;
+  top: 143px;
+  padding: 10px;
+  border-radius: 10px;
+  width: auto;
+  height: auto;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.76);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.76);
+  border-color: rgba(240, 248, 255, 0);
+  background-color: rgba(155, 95, 55, 0.822);
+  color: rgb(255, 193, 111);
+}
+main section div div button:hover {
+  background-color: rgba(155, 95, 55, 0.74);
+}
+main section .carritoVisual {
+  margin-top: 40px;
+  width: 70%;
+  height: 50vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-flow: column wrap;
+      flex-flow: column wrap;
+}
+main section .carritoVisual .barraDeOrientacion {
+  background-color: blanchedalmond;
+  width: 100%;
+  height: auto;
+  border-color: black;
+  border-style: double;
+}
+main section .carritoVisual .barraDeOrientacion ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  text-align: center;
+  width: 100%;
+  height: auto;
+}
+main section .carritoVisual .barraDeOrientacion ul li {
+  list-style-type: none;
+  color: black;
+  font-weight: bold;
+  width: auto;
+  height: auto;
+}
+main section .carritoVisual div {
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+main section .carritoVisual div ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  width: 100%;
+  height: auto;
+  padding: 5px;
+}
+main section .carritoVisual div ul li {
+  text-align: center;
+  list-style-type: none;
+  color: black;
+  font-weight: 800;
+  width: auto;
+  height: auto;
+}
+main section .carritoVisual div ul li .botonEliminar {
+  top: 0;
+  left: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  width: auto;
+  height: auto;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.877);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.877);
+  border-color: rgba(240, 248, 255, 0);
+  background-color: rgba(155, 95, 55, 0.822);
+  color: rgb(255, 193, 111);
+}
+main section .carritoVisual div ul li .botonEliminar:hover {
+  background-color: rgba(155, 95, 55, 0.74);
+}
+main section .carritoVisual .total {
+  width: auto;
+  height: auto;
+  margin-top: 40px;
+  padding: 5px;
   font-weight: bolder;
-  top: 10px;
-  color: rgb(39, 24, 4);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.877);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.877);
+  border-color: rgba(240, 248, 255, 0);
+  background-color: rgba(155, 95, 55, 0.822);
+  color: rgb(255, 193, 111);
 }
 
-.hamburgesaUno {
-  background-image: url(../assets/Imagenes/burgerUno.jpg);
-  background-position: center center;
-  background-size: cover;
+#map {
+  height: 400px;
+  width: 90%;
 }
 
-.hamburgesaDos {
-  background-image: url(../assets/Imagenes/burgerDos.jpg);
-  background-position: center center;
-  background-size: cover;
+#lista {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  width: 90%;
+  height: auto;
 }
 
-.hamburgesaTres {
-  background-image: url(../assets/Imagenes/burgerTres.jpg);
-  background-position: center center;
-  background-size: cover;
+.clase {
+  margin-top: 10px;
 }
 
-.animacionMenu:hover{
-  transform: scale(1.1);
-  transition: transform 1s;
+.titulos {
+  width: auto;
+  height: auto;
+  padding: 5px;
+  border-radius: 40px;
+  background-color: blanchedalmond;
+  margin-top: 40px;
+}
+
+.tituloJuego {
+  width: auto;
+  height: auto;
+  padding: 25px;
+  border-radius: 20px;
+  background-color: rgba(150, 89, 49, 0.877);
+  margin-top: 40px;
+  font-size: 40px;
+  color: rgb(255, 193, 111);
+}
+.tituloJuego p {
+  margin-top: 10px;
+  font-size: 23px;
+  color: rgb(255, 216, 165);
+}
+
+.ganaJugando {
+  width: auto;
+  height: auto;
+  background-color: rgba(119, 69, 36, 0.568);
+  border-radius: 10px;
 }

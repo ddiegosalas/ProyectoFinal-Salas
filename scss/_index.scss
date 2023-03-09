@@ -1,15 +1,17 @@
+ul{
+    list-style: none;
+}
+
 body{
     width: 100vw;
-    height: fit-content;
+    height: auto;
     background-color: rgba(250, 235, 215, 0.445);
-    background-size: cover;
     display: grid;
-    grid-template-rows: 15% 85%;
+    grid-template-rows: 80px 90%;
     grid-template-areas: "nav"
                          "main";
     grid-row-gap: .1em;
 }
-
 
 #animacionLogo{
     animation-name: animacion_logo;
@@ -92,75 +94,205 @@ body{
 
 main{
     grid-area: main;
-    @include flexbox(column, space-evenly, center, column wrap);
-    padding: 10px;
+    @include flexbox(row, space-evenly, center, row wrap);
     section{
-        @include flexbox(column, space-around, center, column wrap);
+        @include flexbox(row, space-around, center, row wrap);
         text-align: center;
-        background-color: rgba(255, 255, 255, 0.253);
-        width: 85%;
-        height: 65vh;
-        padding: 15px;
-        margin: 7px;
-        border-radius: 70px;
-        button{
-            height: fit-content;
-            width: fit-content;
-            padding: 10px;
-            font-style: italic;
-            font-weight: 700;
-            font-size: 20px;
-            color: rgb(165, 113, 46);
-            border-radius: 10px;
-            background-color: rgba(218, 218, 218, 0.253);
-            &:hover{
-                background-color: rgba(155, 155, 155, 0.281);
-            }
-        }
+        width: 100vw;
+        height: auto;
+        padding: 5px;
         div{
             @include flexbox(row, space-evenly, center, row wrap);
-            height: 75%;
+            padding: 2px;
+            height: 55vh;
             width: 98%;
-            padding: 5px;
-            margin: 10px;
-            a{
-                height: 80%;
-                width: 250px;
-                max-width: 250px;
+            div{
+                @include flexbox(column, space-around, center, column wrap);
+                position: relative;
+                width: 23%;
+                height: 90%;
                 padding: 5px;
-                border-radius: 20px;
-                text-decoration: none;
-                h3{
-                    position: relative;
-                    top: 240px;
-                    color: rgb(148, 90, 15);
+                backface-visibility: hidden;
+                transition: 1s;
+                div{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 35px;
+                    @include flexbox(row, center, center, row wrap);
                 }
-                p{
+                .adelante{
+                    transform: perspective(500px) rotateY(0deg);
+                    &:hover{
+                        transform: perspective(500px) rotateY(180deg);
+                    }
+                    img{
+                        height: 65%;
+                        width: 100%;
+                        max-width: 240px;
+                        padding: 5px;
+                        border-radius: 20px;
+                    }
+                    h3{
+                        height: auto;
+                        width: auto;
+                        padding: 5px;
+                        color: rgb(148, 90, 15);
+                        position: relative;
+                        bottom: 22px;
+                        p{
+                            height: auto;
+                            width: auto;
+                            padding: 5px;
+                            color: black;
+                        }
+                    }
+                }
+                .atras{
+                    background-color: blueviolet;
+                    transform: perspective(500px) rotateY(180deg);
+                    &:hover{
+                        transform: perspective(500px) rotateY(360deg);
+                    }
+                    p{
+                        color: black;
+                        font-weight: bold;
+                    }
+                }
+                button{
                     position: relative;
-                    font-weight: bolder;
-                    top: 10px;
-                    color: rgb(39, 24, 4);
+                    top: 143px;
+                    padding: 10px;
+                    border-radius: 10px;
+                    width: auto;
+                    height: auto;
+                    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.76);
+                    border-color: rgba(240, 248, 255, 0);
+                    background-color: rgba(155, 95, 55, 0.822);
+                    color: rgb(255, 193, 111);
+                    &:hover{
+                        background-color: rgba(155, 95, 55, 0.74);
+                    }
                 }
             }
         }
-        
+        .carritoVisual{
+            margin-top: 40px;
+            width: 70%;
+            height: 50vh;
+            @include flexbox(column, flex-start, center, column wrap);
+            .barraDeOrientacion{
+                background-color: blanchedalmond;
+                width: 100%;
+                height: auto;
+                border-color: black;
+                border-style:double;
+                ul{
+                    @include flexbox(row, space-around, center, row wrap);
+                    text-align: center;
+                    width: 100%;
+                    height: auto;
+                    li{
+                        list-style-type: none;
+                        color: black;
+                        font-weight: bold;
+                        width: auto;
+                        height: auto;
+                    }
+                }
+            }
+            div{
+                width: 100%;
+                height: auto;
+                margin-top: 10px;
+                ul{
+                    @include flexbox(row, space-around, center, row wrap);
+                    width: 100%;
+                    height: auto;
+                    padding: 5px;
+                    li{
+                        text-align: center;
+                        list-style-type: none;
+                        color: black;
+                        font-weight: 800;
+                        width: auto;
+                        height: auto;
+                        .botonEliminar{
+                            top: 0;
+                            left: 10px;
+                            padding: 5px;
+                            border-radius: 10px;
+                            width: auto;
+                            height: auto;
+                            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.877);
+                            border-color: rgba(240, 248, 255, 0);
+                            background-color: rgba(155, 95, 55, 0.822);
+                            color: rgb(255, 193, 111);
+                            &:hover{
+                                background-color: rgba(155, 95, 55, 0.74);
+                            }
+                        }
+                    }
+                }
+            }
+            .total{
+                width: auto;
+                height: auto;
+                margin-top: 40px;
+                padding: 5px;
+                font-weight: bolder;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.877);
+                border-color: rgba(240, 248, 255, 0);
+                background-color: rgba(155, 95, 55, 0.822);
+                color: rgb(255, 193, 111);
+            }
+        }
     }
 }
 
-.hamburgesaUno{
-    background-image: url(../assets/Imagenes/burgerUno.jpg);
-    background-position: center center;
-    background-size: cover;
+#map {
+    height: 400px; 
+    width: 90%; 
 }
 
-.hamburgesaDos{
-    background-image: url(../assets/Imagenes/burgerDos.jpg);
-    background-position: center center;
-    background-size: cover;
+#lista{
+    @include flexbox(row, space-evenly, center, row wrap);
+    width: 90%;
+    height: auto;
 }
 
-.hamburgesaTres{
-    background-image: url(../assets/Imagenes/burgerTres.jpg);
-    background-position: center center;
-    background-size: cover;
+.clase{
+    margin-top: 10px;
+}
+
+.titulos{
+    width: auto;
+    height: auto;
+    padding: 5px;
+    border-radius: 40px;
+    background-color: blanchedalmond;
+    margin-top: 40px;
+}
+
+.tituloJuego{
+    width: auto;
+    height: auto;
+    padding: 25px;
+    border-radius: 20px;
+    background-color: rgba(150, 89, 49, 0.877);
+    margin-top: 40px;
+    font-size: 40px;
+    color: rgb(255, 193, 111);
+    p{
+        margin-top: 10px;
+        font-size: 23px;
+        color: rgb(255, 216, 165);
+    }
+}
+
+.ganaJugando{
+    width: auto;
+    height: auto;
+    background-color: rgba(119, 69, 36, 0.568);
+    border-radius: 10px;
 }

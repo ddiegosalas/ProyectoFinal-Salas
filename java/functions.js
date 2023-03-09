@@ -2,121 +2,130 @@ import { hamburguesas } from "./menu.js";
 
 export const carrito = [];
 
-export const buscarHamburguesa = (arr, dato) => {
+export const buscarIndice = (arr, dato) => {
     const indice = arr.findIndex(arr => arr.nombre == dato);
     return arr[indice];
 };
 
-export const sumadorTotal = (arr, dato) => {
-    const hamburguesa = buscarHamburguesa(arr, dato);
-    hamburguesa.stock.listas -= 1;
-    return hamburguesa.precio;
+export const sumadorTotal = () => {
+    let total = 0;
+    for(let i = 0; i < carrito.length; i++){
+        if(carrito[i].cantidad > 1){
+            let multiplicador = carrito[i].cantidad;
+            total += carrito[i].precio * multiplicador;
+        }else{
+            total += carrito[i].precio; 
+        }
+    };
+    return total;
 };
 
-export const botonHacerPedido = () =>{
-    let hamburguesa = false;
-    let texto = prompt("Ingrese el nombre de la hamburguesa: remolacha, porto o not chicken Si desea salir o borrar carrito escriba: salir o borrar").toLowerCase();
+const guardarLocal = (clave, valor) => {
+    localStorage.setItem(clave, valor);
+};
 
-    if ((texto == "remolacha") || (texto == "porto") || (texto == "not chicken") || (texto == "salir") || (texto == "borrar")){
-        hamburguesa = true;
+export const cargarCarritoStorage = () => {
+    const almacenados = JSON.parse(localStorage.getItem("listaCarrito"));
+    if(almacenados == null){
+        console.log("No hay datos almacenados");
     }else{
-        alert ("No existe tal hamburguesa");
-        while(hamburguesa == false){
-            texto = prompt("Ingrese el nombre de la hamburguesa: remolacha, porto o not chicken Si desea salir o borrar carrito escriba: salir o borrar").toLowerCase();
-
-            if ((texto == "remolacha") || (texto == "porto") || (texto == "not chicken") || (texto == "salir") || (texto == "borrar")){
-                hamburguesa = true;
-            }else{
-                alert ("No existe tal hamburguesa")
-            }
+        for(const obj of almacenados){
+            carrito.push(obj);
         }
     }
+};
 
-    if((texto == "salir") || (texto == "borrar")){
+export const botonAgregar = (dato) =>{
+    let carritoBuscado = buscarIndice(carrito, dato);
+    if(dato === carritoBuscado?.nombre){
+        carritoBuscado.cantidad += 1;
     }else{
-        while((texto != "salir") || (texto != "borrar")){
-            let key = true;
-            while(hamburguesa == true){
-                carrito.push(buscarHamburguesa(hamburguesas, texto));
-    
-                alert ("Que más?");
-                texto = prompt("Ingrese el nombre de la hamburguesa: remolacha, porto o not chicken Si desea salir, finalizar o borrar pedido escriba: salir, finalizar o borrar)").toLowerCase();
-    
-                if ((texto == "remolacha") || (texto == "porto") || (texto == "not chicken")){
-                    continue;
-                }else if((texto == "salir") || (texto == "finalizar") || (texto == "borrar")){
-                    hamburguesa = false;
-                }else{
-                    alert ("No existe tal hamburguesa");
-                    key = true;
-                    while(key === true){
-                        texto = prompt ("Ingrese el nombre de la hamburguesa: remolacha, porto o not chicken Si desea salir, finalizar o borrar pedido escriba: salir, finalizar o borrar)").toLowerCase();
-                        
-                        if ((texto == "remolacha") || (texto == "porto") || (texto == "not chicken")){
-                            key = false;
-                        }else if((texto == "salir") || (texto == "finalizar") || (texto == "borrar")){
-                            key = false;
-                            hamburguesa = false;
-                        }else{
-                            alert ("No existe tal hamburguesa");
-                        }
-                    }
-                }
-            }
-            break;
-        }
+        carrito.push(buscarIndice(hamburguesas, dato));
+        carritoBuscado = buscarIndice(carrito, dato);
+        carritoBuscado.cantidad += 1;
     }
+    swal({
+        title: "Agregado!",
+        text: `${carritoBuscado.nombre}
+        $${carritoBuscado.precio}`,
+        icon: "success",
+    });
+    guardarLocal("listaCarrito", JSON.stringify(carrito));
+    carrito.splice(0);
+    cargarCarritoStorage();
+    numeroCarrito(carrito.length);
+};
 
-    if (texto == "salir"){
-        carrito.splice(0);
-    }else if(texto == "borrar"){
-        alert ("Borró su carrito.")
-        carrito.splice(0);
+export const botonEliminar = (indice) => {
+    if(carrito[indice].cantidad > 1){
+        carrito[indice].cantidad -= 1;
         localStorage.clear();
-    }
-    else{
-        const guardarLocal = (clave, valor) => {
-            localStorage.setItem(clave, valor);
-        };
         guardarLocal("listaCarrito", JSON.stringify(carrito));
         carrito.splice(0);
-        carritoStorage(carrito);
-    }
-
-    numeroCarrito(carrito.length);
-
-    console.log(carrito);
-};
-
-export const animacionImagenes = (dato) => {
-    const cartelEmergente = document.getElementsByClassName("cartelEmergente");
-    dato.forEach((e)=>{
-        e.addEventListener("mouseover", () =>{
-            e.classList.add("animacionMenu");
-            cartelEmergente.innerHTML = `Click para agregar al carrete`;
-        });
-    });
-};
-
-export const carritoStorage = (arr) => {
-    const almacenados = JSON.parse(localStorage.getItem("listaCarrito"));
-    for(const obj of almacenados){
-        arr.push(obj);
-    }
-}
-
-export const mostrarCarrito = () => {
-    let mensaje = `Carrito: `;
-    carrito.forEach((el)=>{
-        mensaje += `
-            ${el.nombre} $${el.precio}`;
-    });
-    mensaje += `
-    El total es: $" ${precioTotal}`;
-    alert(mensaje);
+        numeroCarrito(carrito.length);
+    }else{
+        carrito.splice(indice, 1);
+        localStorage.clear();
+        guardarLocal("listaCarrito", JSON.stringify(carrito));
+        carrito.splice(0);
+        numeroCarrito(carrito.length);
+    };
+    cargarCarritoStorage();
 };
 
 export const numeroCarrito = (numero) => {
     const numeroCart = document.getElementById("numeroCarrito");
-        numeroCart.innerHTML = `${numero}`;
-}
+    numeroCart.innerHTML = `${numero}`;
+};
+
+export const mostrarCarrito = (dato) =>{
+    dato.innerHTML = "";
+        dato.innerHTML = `<div class="barraDeOrientacion">
+                                            <ul>
+                                                <li>NOMBRE</li>
+                                                <li>PRECIO</li>
+                                                <li>CANTIDAD</li>
+                                                <li>ACCION</li>
+                                            </ul>
+                                    </div>`
+        carrito.forEach((e, indice) => {
+            dato.innerHTML +=  `<div>
+                                                <ul>
+                                                    <li>${e.nombre}</li>
+                                                    <li>${e.precio}</li>
+                                                    <li>${e.cantidad}</li>                                                    
+                                                    <li><button class="botonEliminar"> Eliminar </button></li>
+                                                </ul>
+                                            </div>
+                                        </div>`
+        });
+        dato.innerHTML += `<div class = "total"> El precio total es $ ${sumadorTotal()} </div>`;
+};
+
+export async function mostrarCartel (){
+    await swal({
+        title: "Ganaste!",
+        text: "",
+        icon: "success",
+        button:{
+            text: "OK"
+        },
+    });
+    location.href = "./index.html";
+    personajeGanador("porto");
+};
+
+export const personajeGanador = (dato) =>{
+    let carritoBuscado = buscarIndice(carrito, dato);
+    if(dato === carritoBuscado?.nombre){
+        carritoBuscado.cantidad += 1;
+    }else{
+        carrito.push(buscarIndice(hamburguesas, dato));
+        carritoBuscado = buscarIndice(carrito, dato);
+        carritoBuscado.cantidad += 1;
+    }
+    guardarLocal("listaCarrito", JSON.stringify(carrito));
+    carrito.splice(0);
+    cargarCarritoStorage();
+    numeroCarrito(carrito.length);
+};
