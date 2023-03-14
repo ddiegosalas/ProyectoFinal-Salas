@@ -135,6 +135,4 @@ export const personajeGanador = (dato) =>{
     }
     guardarLocal("listaCarrito", JSON.stringify(carrito));
     carrito.splice(0);
-    cargarCarritoStorage();
-    numeroCarrito(carrito.length);
 };
