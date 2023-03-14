@@ -3,6 +3,9 @@ import * as funciones from "./functions.js";
 const lista = document.querySelector("#lista");
 const section = document.querySelector("section");
 
+//STORAGE
+funciones.cargarCarritoStorage();
+
 fetch("https://rickandmortyapi.com/api/character?page=1")
 .then((data)=>{
     return data.json();

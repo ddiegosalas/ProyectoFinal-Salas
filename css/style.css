@@ -400,7 +400,7 @@ main section .carritoVisual div ul li {
   height: auto;
 }
 main section .carritoVisual div ul li .botonEliminar {
-  top: 0;
+  top: 0px;
   left: 10px;
   padding: 5px;
   border-radius: 10px;

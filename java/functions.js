@@ -27,7 +27,6 @@ const guardarLocal = (clave, valor) => {
 export const cargarCarritoStorage = () => {
     const almacenados = JSON.parse(localStorage.getItem("listaCarrito"));
     if(almacenados == null){
-        console.log("No hay datos almacenados");
     }else{
         for(const obj of almacenados){
             carrito.push(obj);
@@ -56,21 +55,20 @@ export const botonAgregar = (dato) =>{
     numeroCarrito(carrito.length);
 };
 
-export const botonEliminar = (indice) => {
+export const eliminarDelCarrito = (indice) => {
     if(carrito[indice].cantidad > 1){
         carrito[indice].cantidad -= 1;
         localStorage.clear();
         guardarLocal("listaCarrito", JSON.stringify(carrito));
         carrito.splice(0);
-        numeroCarrito(carrito.length);
     }else{
         carrito.splice(indice, 1);
         localStorage.clear();
         guardarLocal("listaCarrito", JSON.stringify(carrito));
         carrito.splice(0);
-        numeroCarrito(carrito.length);
     };
     cargarCarritoStorage();
+    numeroCarrito(carrito.length);
 };
 
 export const numeroCarrito = (numero) => {
@@ -100,6 +98,15 @@ export const mostrarCarrito = (dato) =>{
                                         </div>`
         });
         dato.innerHTML += `<div class = "total"> El precio total es $ ${sumadorTotal()} </div>`;
+
+        const botonEliminar = document.querySelectorAll(".botonEliminar");
+        botonEliminar.forEach((e, index) => {
+            e.addEventListener("click", ()=>{
+                eliminarDelCarrito(index);
+                const carritoVisual = document.querySelector(".carritoVisual");
+                mostrarCarrito(carritoVisual);
+            });
+        });
 };
 
 export async function mostrarCartel (){
@@ -111,12 +118,14 @@ export async function mostrarCartel (){
             text: "OK"
         },
     });
-    location.href = "./index.html";
+
     personajeGanador("porto");
+    location.href = "./index.html";
 };
 
 export const personajeGanador = (dato) =>{
     let carritoBuscado = buscarIndice(carrito, dato);
+    console.log(carritoBuscado);
     if(dato === carritoBuscado?.nombre){
         carritoBuscado.cantidad += 1;
     }else{

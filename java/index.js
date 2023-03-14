@@ -4,10 +4,13 @@ import * as funciones from "./functions.js";
 funciones.cargarCarritoStorage();
 funciones.numeroCarrito(funciones.carrito.length);
 const carritoVisual = document.querySelector(".carritoVisual");
-funciones.mostrarCarrito(carritoVisual);
+if (funciones.carrito.length > 0){
+    funciones.mostrarCarrito(carritoVisual);
+}
 
 //BOTON DE HACER PEDIDO
 const botonPedido = document.querySelectorAll(".botonAgregar"); 
+let eliminarTotal = 0;
 botonPedido.forEach((e, index)=>{
     let nombre = "";
     e.addEventListener("click", ()=> {
@@ -20,17 +23,6 @@ botonPedido.forEach((e, index)=>{
         };
 
         funciones.botonAgregar(nombre);
-
-        const carritoVisual = document.querySelector(".carritoVisual");
-        funciones.mostrarCarrito(carritoVisual);
-    });
-});
-
-//BOTON ELIMINAR
-const botonEliminar = document.querySelectorAll(".botonEliminar");
-botonEliminar.forEach((e, index) => {
-    e.addEventListener("click", ()=>{
-        funciones.botonEliminar(index);
         const carritoVisual = document.querySelector(".carritoVisual");
         funciones.mostrarCarrito(carritoVisual);
     });
